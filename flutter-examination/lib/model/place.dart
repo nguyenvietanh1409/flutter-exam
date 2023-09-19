@@ -10,6 +10,12 @@ class Place {
   });
 
   factory Place.fromJson(Map<String, dynamic> json) {
-    return Place(id: json['id'], name: json['name'], image: json['image'], rate: json['rate'], favorite: json['favorite']);
+    return Place(
+      id: json['id'],
+      name: json['name'],
+      image: json['image'],
+      rate: json['rate'],
+      favorite: json['favorite']
+    );
   }
 }

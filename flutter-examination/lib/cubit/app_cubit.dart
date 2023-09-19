@@ -17,7 +17,7 @@ class AppCubits extends Cubit<CubitStates> {
 
   void loadHomePage() async {
     try {
-      places = helper.getAllPlant();
+      places = await helper.getAllPlant();
       emit(HomePageState(places: places));
     } catch (e) {
       print(e);
