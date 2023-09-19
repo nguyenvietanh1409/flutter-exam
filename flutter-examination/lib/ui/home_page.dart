@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                                 color: Colors.white.withOpacity(0.8),
                                 child: Row(
                                   children: [
-                                    Text(places[index].rate as String),
+                                    Text(places[index].rate.toString()),
                                     const Icon(Icons.star)
                                   ],
                                 ),
