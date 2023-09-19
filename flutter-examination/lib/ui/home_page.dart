@@ -104,60 +104,68 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 10,
             ),
-            BlocBuilder<AppCubits, CubitStates>(
-              builder: (context, state) {
-                if (state is HomePageState) {
-                  var places = state.places;
-                  return GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount (
-                      crossAxisCount: 2,
-                    ),
-                    itemCount: places.length,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        width: size.width * 0.5,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(places[index].image),
-                            fit: BoxFit.cover
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: BlocBuilder<AppCubits, CubitStates>(
+                builder: (context, state) {
+                  if (state is HomePageState) {
+                    var places = state.places;
+                    return GridView.builder(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount (
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 15.0,
+                        mainAxisSpacing: 15.0,
+                      ),
+                      itemCount: places.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: size.width * 0.5,
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(places[index].image),
+                              fit: BoxFit.cover
+                            ),
+                            borderRadius: BorderRadius.circular(20)
                           ),
-                        ),
-                        child: Stack(
-                          children: [
-                            const Positioned(
-                              top: 10,
-                              right: 20,
-                              child: Icon(Icons.favorite, color: Colors.red,)
-                            ),
-                            Positioned(
-                              top: 60,
-                              left: 20,
-                              child: Text(places[index].name)
-                            ),
-                            Positioned(
-                              top: 80,
-                              left: 20,
-                              child: Container(
-                                color: Colors.white.withOpacity(0.8),
-                                child: Row(
-                                  children: [
-                                    Text(places[index].rate.toString()),
-                                    const Icon(Icons.star)
-                                  ],
-                                ),
+                          child: Stack(
+                            children: [
+                              const Positioned(
+                                top: 10,
+                                child: Icon(Icons.favorite, color: Colors.red,)
+                              ),
+                              Positioned(
+                                top: 110,
+                                child: Text(places[index].name, style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20
+                                ),)
+                              ),
+                              Positioned(
+                                top: 135,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                                  color: Colors.white.withOpacity(0.8),
+                                  child: Row(
+                                    children: [
+                                      Text(places[index].rate.toString()),
+                                      const Icon(Icons.star, color: Colors.amberAccent,)
+                                    ],
+                                  ),
+                                )
                               )
-                            )
-                          ],
-                        ),
-                      );
-                    }
+                            ],
+                          ),
+                        );
+                      }
+                    );
+                  }
+                  return const Center(
+                    child: Text('no data'),
                   );
-                }
-                return const Center(
-                  child: Text('no data'),
-                );
-              },
+                },
+              ),
             )
           ],
         ),
