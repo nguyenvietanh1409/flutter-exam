@@ -20,9 +20,11 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
       body: BlocBuilder<AppCubits, CubitStates> (
         builder: (context, state) {
           if (state is HomePageState) {
-            return const HomePage();
+            return const RootPage();
           }
-          return const RootPage();
+          return const Center(
+            child: Text('No data'),
+          );
         },
       ),
     );

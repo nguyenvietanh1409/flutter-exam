@@ -126,17 +126,17 @@ class _HomePageState extends State<HomePage> {
                         child: Stack(
                           children: [
                             const Positioned(
-                              top: 20,
+                              top: 10,
                               right: 20,
                               child: Icon(Icons.favorite, color: Colors.red,)
                             ),
                             Positioned(
-                              top: 50,
+                              top: 60,
                               left: 20,
                               child: Text(places[index].name)
                             ),
                             Positioned(
-                              top: 70,
+                              top: 80,
                               left: 20,
                               child: Container(
                                 color: Colors.white.withOpacity(0.8),
