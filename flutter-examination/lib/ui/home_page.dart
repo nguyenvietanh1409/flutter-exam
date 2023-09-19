@@ -133,6 +133,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               const Positioned(
                                 top: 10,
+                                right: 0,
                                 child: Icon(Icons.favorite, color: Colors.red,)
                               ),
                               Positioned(
